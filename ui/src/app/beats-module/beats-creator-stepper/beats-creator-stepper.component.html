@@ -1,0 +1,63 @@
+<div class="beat-creator-stepper-head-image">
+  <img src="/assets/img/beat-creator-image.jpg">
+  <span class="beat-creator-stepper-title">New Beat Creator</span>
+</div>
+<div class="beat-creator-stepper">
+  <mat-horizontal-stepper linear #stepper>
+    <mat-step [stepControl]="firstStepBeatDetailsFormGroup">
+      <form [formGroup]="firstStepBeatDetailsFormGroup">
+        <ng-template matStepLabel>Personal Information</ng-template>
+        <mat-form-field>
+          <mat-label>Creator's First Name</mat-label>
+          <input matInput
+                 placeholder="First name"
+                 formControlName="creatorFirstName"
+                 required>
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field>
+          <mat-label>Creator's Last Name</mat-label>
+          <input matInput
+                 placeholder="Last name"
+                 formControlName="creatorLastName"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondStepBeatDetailsFormGroup">
+      <form [formGroup]="secondStepBeatDetailsFormGroup">
+        <ng-template matStepLabel>Basic Beat Information</ng-template>
+        <mat-form-field>
+          <mat-label>Beat Name</mat-label>
+          <input matInput
+                 placeholder="final_mixdown_master..."
+                 formControlName="beatName"
+                 required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <textarea matInput
+                    placeholder="Something nice about your music."
+                    formControlName="description"></textarea>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Confirmation</ng-template>
+      <p>If you want, you can go back and change the information. <br>Or you can do that after creation of the beat, from the beat details section.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">I want to start from scratch</button>
+        <button mat-button (click)="submitBeatForm()">Save</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

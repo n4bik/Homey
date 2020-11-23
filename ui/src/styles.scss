@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+  -webkit-font-smoothing: antialiased !important;
+}
+body {
+  margin: 0;
+  font-family: "Source Sans Pro", "Helvetica Neue", sans-serif;
+}
+.hms-title {
+  font-family: BentonModDisp, serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+.hms-subtitle {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+}
+button:focus {
+  outline: 0;
+}
+
+.page-title {
+  padding: 30px;
+  margin: 0;
+}
+
+.page-container {
+  padding: 20px;
+}
+

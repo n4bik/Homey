@@ -1,0 +1,60 @@
+<div class="hms-list-container">
+  <table mat-table [dataSource]="billsListSource" matSort>
+    <ng-container matColumnDef="billName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let bills"> {{bills.billName}} </td>
+      <td mat-footer-cell *matFooterCellDef> <strong>Total</strong> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="billCategory">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+      <td mat-cell *matCellDef="let bills"> {{bills.billCategory}} </td>
+      <td mat-footer-cell *matFooterCellDef> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="billValue">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Value </th>
+      <td mat-cell *matCellDef="let bills"> {{ bills.billValue | currency:' '}} zł</td>
+      <td mat-footer-cell *matFooterCellDef> <strong>{{ getTotalValue() | currency: ' '}} zł</strong> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dueDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Due date </th>
+      <td mat-cell *matCellDef="let bills"> {{bills.dueDate}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <ng-container matColumnDef="pay">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let bills">
+        <div *ngIf="bills.payed == false; else activityCompletedCheckBox">
+          <span class="hms-pay-button"
+                (click)="payBill(bills.id)">
+          <mat-icon color="primary">monetization_on</mat-icon>
+          </span>
+        </div>
+        <ng-template #activityCompletedCheckBox>
+          <span class="hms-pay-button">
+          <mat-icon color="green">money_off</mat-icon>
+          </span>
+        </ng-template>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let bills">
+          <span class="hms-delete-button" (click)="openDeleteDialog(bills.id)">
+            <mat-icon>delete</mat-icon>
+          </span>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+  </table>
+</div>
+

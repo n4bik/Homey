@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Add a new card</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+  <form [formGroup]="newCardForm" novalidate>
+    <mat-form-field class="form-group">
+      <mat-label>Activity name</mat-label>
+      <mat-select formControlName="activityName" required>
+        <mat-option *ngFor="let activities of activitiesNames"
+                    [value]="activities">
+          {{activities}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+<br>
+    <mat-form-field class="form-group">
+      <mat-label>Assignee</mat-label>
+      <mat-select formControlName="assignee" required>
+        <mat-option *ngFor="let assignee of assignees"
+                    [value]="assignee">
+          {{assignee}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+<br>
+    <mat-form-field class="form-group">
+      <mat-label>Due date</mat-label>
+      <input matInput [matDatepicker]="dueDatePicker" class="form-control" formControlName="dueDate" required>
+      <mat-datepicker-toggle matSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #dueDatePicker></mat-datepicker>
+    </mat-form-field>
+  </form>
+  <button type="submit" class="btn btn-primary" (click)="submitCardForm()">Submit</button>
+  <button class="btn btn-danger" (click)="cancelCard()">Cancel</button>
+</div>

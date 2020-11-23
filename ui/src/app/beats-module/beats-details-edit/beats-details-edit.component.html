@@ -1,0 +1,468 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <a class="hms-nav-go-back"
+       [routerLink]="'/beats'">
+      <strong>Beat-o-matic</strong>
+    </a>
+    &nbsp;|&nbsp;
+    <a class="hms-nav-go-back"
+       [routerLink]="['/beat-details', {beatId: beatId}]">
+      <strong>Preview</strong>
+    </a>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-tab-group>
+  <mat-tab label="Beat Details">
+    <div class="hms-content-container">
+      <h2 class="component-title">{{beatDetailsTitle}}</h2>
+      <br>
+      <div *ngFor="let beatDetail of beatsList">
+        <div *ngIf="beatDetail.id === beatId">
+          <form class="beat-details-form"
+                name="beat-details-form"
+                (keydown.enter)="$event.preventDefault()"
+                [formGroup]="beatDetailsForm"
+                (submit)="submit(beatDetailsForm.value)">
+
+            <mat-form-field class="beat-details">
+              <mat-label>Beat Name</mat-label>
+              <input matInput
+                     formControlName="beatName"
+                     placeholder="Type Beat's Name"
+                     value="{{ beatDetail.beatName }}">
+            </mat-form-field>
+
+            <mat-form-field class="beat-details">
+              <mat-label>Creator's First Name</mat-label>
+              <input matInput
+                     formControlName="creatorFirstName"
+                     placeholder="Type Creator's First Name"
+                     value="{{ beatDetail.creatorFirstName }}">
+            </mat-form-field>
+
+            <mat-form-field class="beat-details">
+              <mat-label>Creator's Last Name</mat-label>
+              <input matInput
+                     formControlName="creatorLastName"
+                     placeholder="Type Creator's Last Name"
+                     value="{{ beatDetail.creatorLastName }}">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="beat-details-description">
+              <mat-label>Description</mat-label>
+              <textarea matInput
+                        formControlName="description"
+                        placeholder="How does your beat sounds like? What feelings and emotions it represents?"
+                        value="{{ beatDetail.description }}"></textarea>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="beat-details-date">
+              <mat-label>Publish Date</mat-label>
+              <input matInput
+                     formControlName="publishDate"
+                     [matDatepicker]="publishDatePicker"
+                     value="{{ beatDetail.publishDate }}">
+              <mat-datepicker-toggle matSuffix [for]="publishDatePicker"></mat-datepicker-toggle>
+              <mat-datepicker #publishDatePicker></mat-datepicker>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="beat-details-date">
+              <mat-label>Release Date</mat-label>
+              <input matInput
+                     formControlName="releaseDate"
+                     [matDatepicker]="releaseDatePicker"
+                     value="{{ beatDetail.releaseDate }}">
+              <mat-datepicker-toggle matSuffix [for]="releaseDatePicker"></mat-datepicker-toggle>
+              <mat-datepicker #releaseDatePicker></mat-datepicker>
+            </mat-form-field>
+            <br>
+            <app-beats-tags></app-beats-tags>
+            <br>
+            <button class="btn btn-primary" id="beat-details-submit-btn" type="submit">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Files Management">
+    <div class="hms-content-container">
+      <h2 class="component-title">{{filesManagementTitle}}</h2>
+      <br>
+      <div *ngFor="let beatDetail of beatsList">
+        <div *ngIf="beatDetail.id === beatId">
+          <form class="beat-details-form"
+                name="beat-details-form"
+                (keydown.enter)="$event.preventDefault()"
+                [formGroup]="beatDetailsForm"
+                (submit)="submit(beatDetailsForm.value)">
+
+            <mat-form-field class="beat-details-url">
+              <mat-label>MP3 Tagged</mat-label>
+              <input matInput formControlName="mp3TaggedUrl">
+              <app-beats-file-upload-component formatType="mp3T"></app-beats-file-upload-component>
+              <div *ngIf="beatDetail.mp3TaggedUrl !== null">
+                <a href="{{ downloadBeatByName('mp3T') }}" class="btn btn-info">Download</a>
+                <button (click)="delete('mp3T')" class="btn btn-danger">Delete</button>
+              </div>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="beat-details-url">
+              <mat-label>MP3 Untagged</mat-label>
+              <input matInput formControlName="mp3UntaggedUrl">
+              <app-beats-file-upload-component formatType="mp3U"></app-beats-file-upload-component>
+              <div *ngIf="beatDetail.mp3UntaggedUrl !== null">
+                <a href="{{ downloadBeatByName('mp3U') }}" class="btn btn-info">Download</a>
+                <button (click)="delete('mp3U')" class="btn btn-danger">Delete</button>
+              </div>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="beat-details-url">
+              <mat-label>WAV Tagged</mat-label>
+              <input matInput formControlName="wavTaggedUrl">
+              <app-beats-file-upload-component formatType="wavT"></app-beats-file-upload-component>
+              <div *ngIf="beatDetail.wavTaggedUrl !== null">
+                <a href="{{ downloadBeatByName('wavT') }}" class="btn btn-info">Download</a>
+                <button (click)="delete('wavT')" class="btn btn-danger">Delete</button>
+              </div>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="beat-details-url">
+              <mat-label>WAV Untagged</mat-label>
+              <input matInput formControlName="wavUntaggedUrl">
+              <app-beats-file-upload-component formatType="wavU"></app-beats-file-upload-component>
+              <div *ngIf="beatDetail.wavUntaggedUrl !== null">
+                <a href="{{ downloadBeatByName('wavU') }}" class="btn btn-info">Download</a>
+                <button (click)="delete('wavU')" class="btn btn-danger">Delete</button>
+              </div>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="beat-details-url">
+              <mat-label>Square Cover Graphic</mat-label>
+              <input matInput formControlName="squareCoverGfxUrl">
+              <app-beats-file-upload-component formatType="imgS"></app-beats-file-upload-component>
+              <div *ngIf="beatDetail.squareCoverGfxUrl !== null">
+                <a href="{{ downloadBeatByName('imgS') }}" class="btn btn-info">Download</a>
+                <button (click)="delete('imgS')" class="btn btn-danger">Delete</button>
+              </div>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="beat-details-url">
+              <mat-label>YouTube Thumbnail Graphic</mat-label>
+              <input matInput formControlName="youtubeThumbnailGfxUrl">
+              <app-beats-file-upload-component formatType="imgY"></app-beats-file-upload-component>
+              <div *ngIf="beatDetail.youtubeThumbnailGfxUrl !== null">
+                <a href="{{ downloadBeatByName('imgY') }}" class="btn btn-info">Download</a>
+                <button (click)="delete('imgY')" class="btn btn-danger">Delete</button>
+              </div>
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="External Sites Configuration">
+    <mat-tab-group>
+      <mat-tab label="BeatStars Configuration">
+        <div class="hms-content-container">
+          <h2 class="component-title">{{beatstarsConfigTitle}}</h2>
+          <br>
+          <div *ngFor="let beatDetail of beatsList">
+            <div *ngIf="beatDetail.id === beatId">
+              <form class="beat-details-form"
+                    name="beat-details-form"
+                    (keydown.enter)="$event.preventDefault()"
+                    [formGroup]="beatDetailsForm"
+                    (submit)="submit(beatDetailsForm.value)">
+
+                <mat-form-field class="beat-details">
+                  <mat-label>Beat Name</mat-label>
+                  <input matInput
+                         formControlName="beatName"
+                         placeholder="Type Beat's Name"
+                         value="{{ beatDetail.beatName }}">
+                </mat-form-field>
+
+                <mat-form-field class="beat-details">
+                  <mat-label>Creator's First Name</mat-label>
+                  <input matInput
+                         formControlName="creatorFirstName"
+                         placeholder="Type Creator's First Name"
+                         value="{{ beatDetail.creatorFirstName }}">
+                </mat-form-field>
+
+                <mat-form-field class="beat-details">
+                  <mat-label>Creator's Last Name</mat-label>
+                  <input matInput
+                         formControlName="creatorLastName"
+                         placeholder="Type Creator's Last Name"
+                         value="{{ beatDetail.creatorLastName }}">
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="beat-details-description">
+                  <mat-label>Description</mat-label>
+                  <textarea matInput
+                            formControlName="description"
+                            placeholder="How does your beat sounds like? What feelings and emotions it represents?"
+                            value="{{ beatDetail.description }}"></textarea>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="beat-details-date">
+                  <mat-label>Publish Date</mat-label>
+                  <input matInput
+                         formControlName="publishDate"
+                         [matDatepicker]="publishDatePicker"
+                         value="{{ beatDetail.publishDate }}">
+                  <mat-datepicker-toggle matSuffix [for]="publishDatePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #publishDatePicker></mat-datepicker>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="beat-details-date">
+                  <mat-label>Release Date</mat-label>
+                  <input matInput
+                         formControlName="releaseDate"
+                         [matDatepicker]="releaseDatePicker"
+                         value="{{ beatDetail.releaseDate }}">
+                  <mat-datepicker-toggle matSuffix [for]="releaseDatePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #releaseDatePicker></mat-datepicker>
+                </mat-form-field>
+                <br>
+                <button class="btn btn-primary" id="beat-files-submit-btn" type="submit">Save</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="YouTube Configuration">
+        <div class="hms-content-container">
+          <h2 class="component-title">{{youtubeConfigTitle}}</h2>
+          <br>
+          <div *ngFor="let beatDetail of beatsList">
+            <div *ngIf="beatDetail.id === beatId">
+              <form class="beat-details-form"
+                    name="beat-details-form"
+                    (keydown.enter)="$event.preventDefault()"
+                    [formGroup]="beatDetailsForm"
+                    (submit)="submit(beatDetailsForm.value)">
+
+                <mat-form-field class="beat-details">
+                  <mat-label>Beat Name</mat-label>
+                  <input matInput
+                         formControlName="beatName"
+                         placeholder="Type Beat's Name"
+                         value="{{ beatDetail.beatName }}">
+                </mat-form-field>
+
+                <mat-form-field class="beat-details">
+                  <mat-label>Creator's First Name</mat-label>
+                  <input matInput
+                         formControlName="creatorFirstName"
+                         placeholder="Type Creator's First Name"
+                         value="{{ beatDetail.creatorFirstName }}">
+                </mat-form-field>
+
+                <mat-form-field class="beat-details">
+                  <mat-label>Creator's Last Name</mat-label>
+                  <input matInput
+                         formControlName="creatorLastName"
+                         placeholder="Type Creator's Last Name"
+                         value="{{ beatDetail.creatorLastName }}">
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="beat-details-description">
+                  <mat-label>Description</mat-label>
+                  <textarea matInput
+                            formControlName="description"
+                            placeholder="How does your beat sounds like? What feelings and emotions it represents?"
+                            value="{{ beatDetail.description }}"></textarea>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="beat-details-date">
+                  <mat-label>Publish Date</mat-label>
+                  <input matInput
+                         formControlName="publishDate"
+                         [matDatepicker]="publishDatePicker"
+                         value="{{ beatDetail.publishDate }}">
+                  <mat-datepicker-toggle matSuffix [for]="publishDatePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #publishDatePicker></mat-datepicker>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="beat-details-date">
+                  <mat-label>Release Date</mat-label>
+                  <input matInput
+                         formControlName="releaseDate"
+                         [matDatepicker]="releaseDatePicker"
+                         value="{{ beatDetail.releaseDate }}">
+                  <mat-datepicker-toggle matSuffix [for]="releaseDatePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #releaseDatePicker></mat-datepicker>
+                </mat-form-field>
+                <br>
+                <button class="btn btn-primary" id="beat-files-submit-btn" type="submit">Save</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="SoundCloud Configuration">
+        <div class="hms-content-container">
+          <h2 class="component-title">{{soundcloudConfigTitle}}</h2>
+          <br>
+          <div *ngFor="let beatDetail of beatsList">
+            <div *ngIf="beatDetail.id === beatId">
+              <form class="beat-details-form"
+                    name="beat-details-form"
+                    (keydown.enter)="$event.preventDefault()"
+                    [formGroup]="beatDetailsForm"
+                    (submit)="submit(beatDetailsForm.value)">
+
+                <mat-form-field class="beat-details">
+                  <mat-label>Beat Name</mat-label>
+                  <input matInput
+                         formControlName="beatName"
+                         placeholder="Type Beat's Name"
+                         value="{{ beatDetail.beatName }}">
+                </mat-form-field>
+
+                <mat-form-field class="beat-details">
+                  <mat-label>Creator's First Name</mat-label>
+                  <input matInput
+                         formControlName="creatorFirstName"
+                         placeholder="Type Creator's First Name"
+                         value="{{ beatDetail.creatorFirstName }}">
+                </mat-form-field>
+
+                <mat-form-field class="beat-details">
+                  <mat-label>Creator's Last Name</mat-label>
+                  <input matInput
+                         formControlName="creatorLastName"
+                         placeholder="Type Creator's Last Name"
+                         value="{{ beatDetail.creatorLastName }}">
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="beat-details-description">
+                  <mat-label>Description</mat-label>
+                  <textarea matInput
+                            formControlName="description"
+                            placeholder="How does your beat sounds like? What feelings and emotions it represents?"
+                            value="{{ beatDetail.description }}"></textarea>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="beat-details-date">
+                  <mat-label>Publish Date</mat-label>
+                  <input matInput
+                         formControlName="publishDate"
+                         [matDatepicker]="publishDatePicker"
+                         value="{{ beatDetail.publishDate }}">
+                  <mat-datepicker-toggle matSuffix [for]="publishDatePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #publishDatePicker></mat-datepicker>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="beat-details-date">
+                  <mat-label>Release Date</mat-label>
+                  <input matInput
+                         formControlName="releaseDate"
+                         [matDatepicker]="releaseDatePicker"
+                         value="{{ beatDetail.releaseDate }}">
+                  <mat-datepicker-toggle matSuffix [for]="releaseDatePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #releaseDatePicker></mat-datepicker>
+                </mat-form-field>
+                <br>
+                <button class="btn btn-primary" id="beat-files-submit-btn" type="submit">Save</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Facebook Configuration">
+        <div class="hms-content-container">
+          <h2 class="component-title">{{facebookConfigTitle}}</h2>
+          <br>
+          <div *ngFor="let beatDetail of beatsList">
+            <div *ngIf="beatDetail.id === beatId">
+              <form class="beat-details-form"
+                    name="beat-details-form"
+                    (keydown.enter)="$event.preventDefault()"
+                    [formGroup]="beatDetailsForm"
+                    (submit)="submit(beatDetailsForm.value)">
+
+                <mat-form-field class="beat-details">
+                  <mat-label>Beat Name</mat-label>
+                  <input matInput
+                         formControlName="beatName"
+                         placeholder="Type Beat's Name"
+                         value="{{ beatDetail.beatName }}">
+                </mat-form-field>
+
+                <mat-form-field class="beat-details">
+                  <mat-label>Creator's First Name</mat-label>
+                  <input matInput
+                         formControlName="creatorFirstName"
+                         placeholder="Type Creator's First Name"
+                         value="{{ beatDetail.creatorFirstName }}">
+                </mat-form-field>
+
+                <mat-form-field class="beat-details">
+                  <mat-label>Creator's Last Name</mat-label>
+                  <input matInput
+                         formControlName="creatorLastName"
+                         placeholder="Type Creator's Last Name"
+                         value="{{ beatDetail.creatorLastName }}">
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="beat-details-description">
+                  <mat-label>Description</mat-label>
+                  <textarea matInput
+                            formControlName="description"
+                            placeholder="How does your beat sounds like? What feelings and emotions it represents?"
+                            value="{{ beatDetail.description }}"></textarea>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="beat-details-date">
+                  <mat-label>Publish Date</mat-label>
+                  <input matInput
+                         formControlName="publishDate"
+                         [matDatepicker]="publishDatePicker"
+                         value="{{ beatDetail.publishDate }}">
+                  <mat-datepicker-toggle matSuffix [for]="publishDatePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #publishDatePicker></mat-datepicker>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="beat-details-date">
+                  <mat-label>Release Date</mat-label>
+                  <input matInput
+                         formControlName="releaseDate"
+                         [matDatepicker]="releaseDatePicker"
+                         value="{{ beatDetail.releaseDate }}">
+                  <mat-datepicker-toggle matSuffix [for]="releaseDatePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #releaseDatePicker></mat-datepicker>
+                </mat-form-field>
+                <br>
+                <button class="btn btn-primary" id="beat-files-submit-btn" type="submit">Save</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-tab>
+</mat-tab-group>

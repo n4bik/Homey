@@ -1,0 +1,23 @@
+<div class="page-container">
+  <div class="page-title">
+    <div *ngIf="checked == false; else titleElse">
+      <h2>Activities cards</h2>
+    </div>
+    <ng-template #titleElse>
+      <h2>Activities list</h2>
+    </ng-template>
+    <button class="hms-add-new-button" style="margin-top: 10px" mat-raised-button (click)="openDialog()">New Activity</button>
+    <mat-slide-toggle
+      class="hms-activity-slider-toggle"
+      [(ngModel)]="checked"
+      (change)="changed()">
+      Cards / List
+    </mat-slide-toggle>
+  </div>
+  <div *ngIf="checked == false; else displayElse">
+    <app-activities-card-display></app-activities-card-display>
+  </div>
+  <ng-template #displayElse>
+    <app-activities-list-display></app-activities-list-display>
+  </ng-template>
+</div>

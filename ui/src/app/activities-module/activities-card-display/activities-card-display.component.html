@@ -1,0 +1,32 @@
+<div class="hms-cards-container">
+
+  <div *ngFor="let activity of activitiesList">
+
+    <app-card class="hms-card">
+      <mat-card-title>
+        {{ activity.activityName }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{ activity.assignee }}
+      </mat-card-subtitle>
+      <mat-card-content>
+        {{ activity.dueDate }}
+      </mat-card-content>
+      <span class="hms-delete-button" (click)="openDeleteDialog(activity.id)">
+            <mat-icon>delete</mat-icon>
+      </span>
+
+      <div *ngIf="activity.done == false; else activityCompletedCheckBox">
+          <span class="hms-complete-button" (click)="completeActivity(activity.id)">
+          <mat-icon>check_box_outline_blank</mat-icon>
+          </span>
+      </div>
+
+      <ng-template #activityCompletedCheckBox>
+          <span class="hms-complete-button">
+          <mat-icon>check_box</mat-icon>
+          </span>
+      </ng-template>
+    </app-card>
+  </div>
+</div>

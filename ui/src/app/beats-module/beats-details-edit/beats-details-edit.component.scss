@@ -1,0 +1,42 @@
+.hms-content-container {
+  padding: 30px 60px;
+  width: 500px;
+}
+
+.beat-details-form{
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.beat-details{
+  width: 100%;
+}
+
+.beat-details-date{
+  width: 100%;
+}
+
+.beat-details-url{
+  width: 100%;
+}
+
+.beat-details-description{
+  width: 100%;
+}
+
+.mat-toolbar {
+  padding-left: 45px;
+  height: 50px;
+  background-color: #f6faf6;
+}
+
+.hms-nav-go-back {
+  background-color: #f6faf6;
+  font-size: 16px;
+  font-family: "Lato", "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

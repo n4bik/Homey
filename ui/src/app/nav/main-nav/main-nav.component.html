@@ -1,0 +1,73 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>
+      <div style="line-height:15px">
+        <span class="hms-title">homey.</span>
+        <br>
+        <span class="hms-subtitle">HOME FOR BEAT MANAGEMENT</span>
+      </div>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" routerLinkActive="active">
+        <mat-icon>home</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Home
+      </a>
+      <a mat-list-item routerLink="/activities" routerLinkActive="active">
+        <div *ngIf="getNotDoneCount() != 0; else elseBlock">
+          <mat-icon matBadge="{{ getNotDoneCount() }}" matBadgePosition="above after">sim_card</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Activities
+        </div>
+        <ng-template #elseBlock>
+          <mat-icon>sim_card</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Activities
+        </ng-template>
+
+      </a>
+      <a mat-list-item routerLink="/beats" routerLinkActive="active">
+        <mat-icon>feedback</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Beat-o-matic
+      </a>
+      <a mat-list-item routerLink="/bills" routerLinkActive="active">
+        <mat-icon>payment</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Bills
+      </a>
+      <a mat-list-item routerLink="/" routerLinkActive="active">
+        <mat-icon>people</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Family members
+      </a>
+      <a mat-list-item routerLink="/" routerLinkActive="active">
+        <mat-icon>message</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Messages
+      </a>
+      <a mat-list-item routerLink="/" routerLinkActive="active">
+        <mat-icon>calendar_today</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Calendar
+      </a>
+      <a mat-list-item routerLink="/" routerLinkActive="active">
+        <mat-icon>settings_applications</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Settings
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" id="hms-header-right-side">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+      <span class="fill-remaining-space"></span>
+
+      <mat-icon>account_circle</mat-icon>
+      <span class="hms-header-user-menu">Tomasz Buga</span>
+      <button class="hms-header-user-menu-button" mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu" yPosition="below" xPosition="before">
+        <button mat-menu-item>Settings</button>
+        <button mat-menu-item>Help</button>
+      </mat-menu>
+
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

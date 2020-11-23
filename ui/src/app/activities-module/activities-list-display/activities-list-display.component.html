@@ -1,0 +1,51 @@
+<div class="hms-list-container">
+    <table mat-table [dataSource]="activitiesListSource" matSort>
+      <ng-container matColumnDef="activityName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Activity name</th>
+        <td mat-cell *matCellDef="let activities"> {{activities.activityName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="assignee">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Assingee </th>
+        <td mat-cell *matCellDef="let activities"> {{activities.assignee}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dueDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Due date </th>
+        <td mat-cell *matCellDef="let activities"> {{activities.dueDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="completionDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Completion date </th>
+        <td mat-cell *matCellDef="let activities"> {{activities.completionDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="done">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let activities">
+          <div *ngIf="activities.done == false; else activityCompletedCheckBox">
+            <span class="hms-complete-button" (click)="completeActivity(activities.id)">
+            <mat-icon>check_box_outline_blank</mat-icon>
+            </span>
+          </div>
+          <ng-template #activityCompletedCheckBox>
+            <span class="hms-complete-button">
+            <mat-icon>check_box</mat-icon>
+            </span>
+          </ng-template>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let activities">
+          <span class="hms-delete-button" (click)="openDeleteDialog(activities.id)">
+            <mat-icon>delete</mat-icon>
+          </span>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

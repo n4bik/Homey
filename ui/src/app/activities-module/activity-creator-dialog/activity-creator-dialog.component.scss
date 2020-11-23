@@ -1,0 +1,17 @@
+.btn {
+  margin-right: 10px;
+}
+
+.mat-form-field {
+  width: 350px;
+}
+
+.mat-dialog-content {
+  margin-top: 20px;
+}
+
+::ng-deep snack-bar-container.hms-card-dialog-snackbar {
+  background-color: #543C52;
+  margin-top: 160px;
+  color: #FFFFFF;
+}

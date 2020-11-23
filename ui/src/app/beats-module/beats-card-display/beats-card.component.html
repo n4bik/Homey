@@ -1,0 +1,26 @@
+<div class="hms-cards-container">
+
+  <div *ngFor="let beat of beatsList">
+
+    <app-card class="hms-card">
+      <mat-card-title>
+        <a [routerLink]="['/beat-details/', {beatId: beat.id}]">{{ beat.beatName }}</a>
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{ beat.creatorFirstName }} {{ beat.creatorLastName }}
+      </mat-card-subtitle>
+      <mat-card-content>
+        {{ beat.description }}
+      </mat-card-content>
+      <mat-card-content>
+        Published: {{ beat.publishDate }}
+      </mat-card-content>
+      <mat-card-content>
+        Released: {{ beat.releaseDate }}
+      </mat-card-content>
+      <span class="hms-delete-button" (click)="openDeleteDialog(beat.id)">
+            <mat-icon>delete</mat-icon>
+      </span>
+    </app-card>
+  </div>
+</div>

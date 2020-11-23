@@ -1,0 +1,24 @@
+.hms-list-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+table {
+  width: 100%;
+}
+
+.hms-delete-button,
+.hms-complete-button{
+  cursor: pointer;
+  display: flex;
+}
+
+::ng-deep snack-bar-container.hms-completed-activity-snackbar {
+  background-color: darkgreen;
+  margin-top: 160px;
+  color: white;
+}

@@ -1,0 +1,10 @@
+#upload_button {
+  display: inline-block;
+}
+#upload_button input[type=file] {
+  display:none;
+}
+
+.files-upload-buttons {
+  padding-top: 10px;
+}

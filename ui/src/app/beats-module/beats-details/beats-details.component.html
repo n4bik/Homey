@@ -1,0 +1,28 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <a class="hms-nav-go-back"
+       [routerLink]="'/beats'">
+        <strong>Beat-o-matic</strong>
+    </a>
+    &nbsp;|&nbsp;
+    <a class="hms-nav-go-back"
+       [routerLink]="['/beat-edit', {beatId: beatId}]">
+        <strong>Edit</strong>
+    </a>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="hms-content-container">
+  <div *ngFor="let beatDetail of beatsList">
+    <div *ngIf="beatDetail.id === beatId">
+      <h1>{{ beatDetail.beatName }}</h1>
+      <h3>Creator's First Name: {{ beatDetail.creatorFirstName }} </h3>
+      <h3>Creator's Last Name: {{ beatDetail.creatorLastName }}</h3>
+      <h3>Description: {{ beatDetail.description }} </h3>
+      <h3>Tagged MP3 File: {{ beatDetail.mp3TaggedUrl }}</h3>
+      <h3>Untagged MP3 File: {{ beatDetail.mp3UntaggedUrl }}</h3>
+      <h3>Tagged WAV File: {{ beatDetail.wavTaggedUrl }} </h3>
+      <h3>Untagged WAV File: {{ beatDetail.wavUntaggedUrl }}</h3>
+    </div>
+  </div>
+</div>
