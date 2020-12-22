@@ -1,4 +1,4 @@
-package pl.tomaszbuga.homemanagementapp.bill;
+package pl.tomaszbuga.homeybeatmanagement.bill;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

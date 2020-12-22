@@ -1,4 +1,4 @@
-package pl.tomaszbuga.homemanagementapp;
+package pl.tomaszbuga.homeybeatmanagement;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class HomeManagementAppApplicationTests {
+public class HomeyBeatManagementApplicationTests {
 
     @Test
     public void contextLoads() {

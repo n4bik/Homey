@@ -1,4 +1,4 @@
-package pl.tomaszbuga.homemanagementapp.utils;
+package pl.tomaszbuga.homeybeatmanagement.utils;
 
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;

@@ -1,4 +1,4 @@
-package pl.tomaszbuga.homemanagementapp.bill;
+package pl.tomaszbuga.homeybeatmanagement.bill;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

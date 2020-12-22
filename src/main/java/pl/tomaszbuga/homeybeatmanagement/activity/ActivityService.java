@@ -1,4 +1,4 @@
-package pl.tomaszbuga.homemanagementapp.activity;
+package pl.tomaszbuga.homeybeatmanagement.activity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

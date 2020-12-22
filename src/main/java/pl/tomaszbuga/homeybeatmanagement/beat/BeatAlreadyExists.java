@@ -1,4 +1,4 @@
-package pl.tomaszbuga.homemanagementapp.beat;
+package pl.tomaszbuga.homeybeatmanagement.beat;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

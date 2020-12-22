@@ -1,4 +1,4 @@
-package pl.tomaszbuga.homemanagementapp.beat;
+package pl.tomaszbuga.homeybeatmanagement.beat;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -6,7 +6,7 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
-import pl.tomaszbuga.homemanagementapp.utils.FileUploaderService;
+import pl.tomaszbuga.homeybeatmanagement.utils.FileUploaderService;
 
 import java.io.IOException;
 import java.io.InputStream;

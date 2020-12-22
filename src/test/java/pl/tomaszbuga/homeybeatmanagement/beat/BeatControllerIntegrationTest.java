@@ -1,4 +1,4 @@
-package pl.tomaszbuga.homemanagementapp.beat;
+package pl.tomaszbuga.homeybeatmanagement.beat;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

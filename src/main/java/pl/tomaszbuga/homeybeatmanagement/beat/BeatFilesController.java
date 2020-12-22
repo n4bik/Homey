@@ -1,4 +1,4 @@
-package pl.tomaszbuga.homemanagementapp.beat;
+package pl.tomaszbuga.homeybeatmanagement.beat;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import pl.tomaszbuga.homemanagementapp.utils.ResponseMessage;
+import pl.tomaszbuga.homeybeatmanagement.utils.ResponseMessage;
 
 @RestController
 @CrossOrigin("http://localhost:4200")

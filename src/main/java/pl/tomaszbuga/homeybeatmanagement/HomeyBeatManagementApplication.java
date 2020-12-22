@@ -1,4 +1,4 @@
-package pl.tomaszbuga.homemanagementapp;
+package pl.tomaszbuga.homeybeatmanagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-public class HomeManagementAppApplication {
+public class HomeyBeatManagementApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(HomeManagementAppApplication.class, args);
+        SpringApplication.run(HomeyBeatManagementApplication.class, args);
     }
 
 }

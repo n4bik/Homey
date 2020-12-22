@@ -1,4 +1,4 @@
-package pl.tomaszbuga.homemanagementapp.beat;
+package pl.tomaszbuga.homeybeatmanagement.beat;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.mockito.InjectMocks;

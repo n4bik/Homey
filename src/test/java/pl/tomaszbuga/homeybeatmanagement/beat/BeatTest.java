@@ -1,4 +1,4 @@
-package pl.tomaszbuga.homemanagementapp.beat;
+package pl.tomaszbuga.homeybeatmanagement.beat;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.testng.Assert;

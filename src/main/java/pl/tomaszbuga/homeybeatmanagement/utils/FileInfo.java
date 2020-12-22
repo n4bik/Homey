@@ -1,4 +1,4 @@
-package pl.tomaszbuga.homemanagementapp.utils;
+package pl.tomaszbuga.homeybeatmanagement.utils;
 
 public class FileInfo {
     private String name;
