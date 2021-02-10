@@ -13,7 +13,6 @@ public class BeatTest {
     private final String creatorFirstName = "Test Creator First Name";
     private final String creatorLastName = "Test Creator Last Name";
     private final String description = "Test Description";
-    private final Long id = 1L;
     private final String mp3TaggedUrl = "Test Mp3 Tagged Url";
     private final String mp3UntaggedUrl = "Test Mp3 Unagged Url";
     private final String wavTaggedUrl = "Test Wav Tagged Url";
@@ -47,8 +46,13 @@ public class BeatTest {
 
     @Test
     public void testGetBeatName() {
-        Assert.assertEquals(beatName, beat.getBeatName(),
-                String.format("Should be '%s', but is '%s'", beatName, beat.getBeatName()));
+        Assert.assertEquals(
+                beatName,
+                beat.getBeatName(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        beatName,
+                        beat.getBeatName()));
     }
 
     @Test
@@ -58,14 +62,24 @@ public class BeatTest {
         //Act
         beat.setBeatName(newBeatName);
         //Assert
-        Assert.assertEquals(newBeatName, beat.getBeatName(),
-                String.format("Should be '%s', but is '%s'", newBeatName, beat.getBeatName()));
+        Assert.assertEquals(
+                newBeatName,
+                beat.getBeatName(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        newBeatName,
+                        beat.getBeatName()));
     }
 
     @Test
     public void testGetDescription() {
-        Assert.assertEquals(description, beat.getDescription(),
-                String.format("Should be '%s', but is '%s'", description, beat.getDescription()));
+        Assert.assertEquals(
+                description,
+                beat.getDescription(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        description,
+                        beat.getDescription()));
     }
 
     @Test
@@ -75,14 +89,24 @@ public class BeatTest {
         //Act
         beat.setDescription(newDescription);
         //Assert
-        Assert.assertEquals(newDescription, beat.getDescription(),
-                String.format("Should be '%s', but is '%s'", newDescription, beat.getDescription()));
+        Assert.assertEquals(
+                newDescription,
+                beat.getDescription(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        newDescription,
+                        beat.getDescription()));
     }
 
     @Test
     public void testGetCreatorFirstName() {
-        Assert.assertEquals(creatorFirstName, beat.getCreatorFirstName(),
-                String.format("Should be '%s', but is '%s'", creatorFirstName, beat.getCreatorFirstName()));
+        Assert.assertEquals(
+                creatorFirstName,
+                beat.getCreatorFirstName(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        creatorFirstName,
+                        beat.getCreatorFirstName()));
     }
 
     @Test
@@ -92,14 +116,24 @@ public class BeatTest {
         //Act
         beat.setCreatorFirstName(newCreatorFirstName);
         //Assert
-        Assert.assertEquals(newCreatorFirstName, beat.getCreatorFirstName(),
-                String.format("Should be '%s', but is '%s'", newCreatorFirstName, beat.getCreatorFirstName()));
+        Assert.assertEquals(
+                newCreatorFirstName,
+                beat.getCreatorFirstName(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        newCreatorFirstName,
+                        beat.getCreatorFirstName()));
     }
 
     @Test
     public void testGetCreatorLastName() {
-        Assert.assertEquals(creatorLastName, beat.getCreatorLastName(),
-                String.format("Should be '%s', but is '%s'", creatorLastName, beat.getCreatorLastName()));
+        Assert.assertEquals(
+                creatorLastName,
+                beat.getCreatorLastName(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        creatorLastName,
+                        beat.getCreatorLastName()));
     }
 
     @Test
@@ -109,14 +143,24 @@ public class BeatTest {
         //Act
         beat.setCreatorLastName(newCreatorLastName);
         //Assert
-        Assert.assertEquals(newCreatorLastName, beat.getCreatorLastName(),
-                String.format("Should be '%s', but is '%s'", newCreatorLastName, beat.getCreatorLastName()));
+        Assert.assertEquals(
+                newCreatorLastName,
+                beat.getCreatorLastName(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        newCreatorLastName,
+                        beat.getCreatorLastName()));
     }
 
     @Test
     public void testGetReleaseDate() {
-        Assert.assertEquals(releaseDate, beat.getReleaseDate(),
-                String.format("Should be '%s', but is '%s'", releaseDate, beat.getReleaseDate()));
+        Assert.assertEquals(
+                releaseDate,
+                beat.getReleaseDate(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        releaseDate,
+                        beat.getReleaseDate()));
     }
 
     @Test
@@ -126,14 +170,24 @@ public class BeatTest {
         //Act
         beat.setReleaseDate(newReleaseDate);
         //Assert
-        Assert.assertEquals(newReleaseDate, beat.getReleaseDate(),
-                String.format("Should be '%s', but is '%s'", newReleaseDate, beat.getReleaseDate()));
+        Assert.assertEquals(
+                newReleaseDate,
+                beat.getReleaseDate(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        newReleaseDate,
+                        beat.getReleaseDate()));
     }
 
     @Test
     public void testGetPublishDate() {
-        Assert.assertEquals(publishDate, beat.getPublishDate(),
-                String.format("Should be '%s', but is '%s'", publishDate, beat.getPublishDate()));
+        Assert.assertEquals(
+                publishDate,
+                beat.getPublishDate(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        publishDate,
+                        beat.getPublishDate()));
     }
 
     @Test
@@ -143,14 +197,24 @@ public class BeatTest {
         //Act
         beat.setPublishDate(newPublishDate);
         //Assert
-        Assert.assertEquals(newPublishDate, beat.getPublishDate(),
-                String.format("Should be '%s', but is '%s'", newPublishDate, beat.getPublishDate()));
+        Assert.assertEquals(
+                newPublishDate,
+                beat.getPublishDate(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        newPublishDate,
+                        beat.getPublishDate()));
     }
 
     @Test
     public void testGetSquareCoverGfxUrl() {
-        Assert.assertEquals(squareCoverGfxUrl, beat.getSquareCoverGfxUrl(),
-                String.format("Should be '%s', but is '%s'", squareCoverGfxUrl, beat.getSquareCoverGfxUrl()));
+        Assert.assertEquals(
+                squareCoverGfxUrl,
+                beat.getSquareCoverGfxUrl(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        squareCoverGfxUrl,
+                        beat.getSquareCoverGfxUrl()));
     }
 
     @Test
@@ -160,14 +224,24 @@ public class BeatTest {
         //Act
         beat.setSquareCoverGfxUrl(newSquareCoverGfxUrl);
         //Assert
-        Assert.assertEquals(newSquareCoverGfxUrl, beat.getSquareCoverGfxUrl(),
-                String.format("Should be '%s', but is '%s'", newSquareCoverGfxUrl, beat.getSquareCoverGfxUrl()));
+        Assert.assertEquals(
+                newSquareCoverGfxUrl,
+                beat.getSquareCoverGfxUrl(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        newSquareCoverGfxUrl,
+                        beat.getSquareCoverGfxUrl()));
     }
 
     @Test
     public void testGetYoutubeThumbnailGfxUrl() {
-        Assert.assertEquals(youtubeThumbnailGfxUrl, beat.getYoutubeThumbnailGfxUrl(),
-                String.format("Should be '%s', but is '%s'", youtubeThumbnailGfxUrl, beat.getYoutubeThumbnailGfxUrl()));
+        Assert.assertEquals(
+                youtubeThumbnailGfxUrl,
+                beat.getYoutubeThumbnailGfxUrl(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        youtubeThumbnailGfxUrl,
+                        beat.getYoutubeThumbnailGfxUrl()));
     }
 
     @Test
@@ -177,14 +251,24 @@ public class BeatTest {
         //Act
         beat.setYoutubeThumbnailGfxUrl(newYoutubeThumbnailGfxUrl);
         //Assert
-        Assert.assertEquals(newYoutubeThumbnailGfxUrl, beat.getYoutubeThumbnailGfxUrl(),
-                String.format("Should be '%s', but is '%s'", newYoutubeThumbnailGfxUrl, beat.getYoutubeThumbnailGfxUrl()));
+        Assert.assertEquals(
+                newYoutubeThumbnailGfxUrl,
+                beat.getYoutubeThumbnailGfxUrl(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        newYoutubeThumbnailGfxUrl,
+                        beat.getYoutubeThumbnailGfxUrl()));
     }
 
     @Test
     public void testGetMp3TaggedUrl() {
-        Assert.assertEquals(mp3TaggedUrl, beat.getMp3TaggedUrl(),
-                String.format("Should be '%s', but is '%s'", mp3TaggedUrl, beat.getMp3TaggedUrl()));
+        Assert.assertEquals(
+                mp3TaggedUrl,
+                beat.getMp3TaggedUrl(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        mp3TaggedUrl,
+                        beat.getMp3TaggedUrl()));
     }
 
     @Test
@@ -194,14 +278,24 @@ public class BeatTest {
         //Act
         beat.setMp3TaggedUrl(newMp3TaggedUrl);
         //Assert
-        Assert.assertEquals(newMp3TaggedUrl, beat.getMp3TaggedUrl(),
-                String.format("Should be '%s', but is '%s'", newMp3TaggedUrl, beat.getMp3TaggedUrl()));
+        Assert.assertEquals(
+                newMp3TaggedUrl,
+                beat.getMp3TaggedUrl(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        newMp3TaggedUrl,
+                        beat.getMp3TaggedUrl()));
     }
 
     @Test
     public void testGetMp3UntaggedUrl() {
-        Assert.assertEquals(mp3UntaggedUrl, beat.getMp3UntaggedUrl(),
-                String.format("Should be '%s', but is '%s'", mp3UntaggedUrl, beat.getMp3UntaggedUrl()));
+        Assert.assertEquals(
+                mp3UntaggedUrl,
+                beat.getMp3UntaggedUrl(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        mp3UntaggedUrl,
+                        beat.getMp3UntaggedUrl()));
     }
 
     @Test
@@ -211,14 +305,24 @@ public class BeatTest {
         //Act
         beat.setMp3UntaggedUrl(newMp3UntaggedUrl);
         //Assert
-        Assert.assertEquals(newMp3UntaggedUrl, beat.getMp3UntaggedUrl(),
-                String.format("Should be '%s', but is '%s'", newMp3UntaggedUrl, beat.getMp3UntaggedUrl()));
+        Assert.assertEquals(
+                newMp3UntaggedUrl,
+                beat.getMp3UntaggedUrl(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        newMp3UntaggedUrl,
+                        beat.getMp3UntaggedUrl()));
     }
 
     @Test
     public void testGetWavTaggedUrl() {
-        Assert.assertEquals(wavTaggedUrl, beat.getWavTaggedUrl(),
-                String.format("Should be '%s', but is '%s'", wavTaggedUrl, beat.getWavTaggedUrl()));
+        Assert.assertEquals(
+                wavTaggedUrl,
+                beat.getWavTaggedUrl(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        wavTaggedUrl,
+                        beat.getWavTaggedUrl()));
     }
 
     @Test
@@ -228,14 +332,24 @@ public class BeatTest {
         //Act
         beat.setWavTaggedUrl(newWavTaggedUrl);
         //Assert
-        Assert.assertEquals(newWavTaggedUrl, beat.getWavTaggedUrl(),
-                String.format("Should be '%s', but is '%s'", newWavTaggedUrl, beat.getWavTaggedUrl()));
+        Assert.assertEquals(
+                newWavTaggedUrl,
+                beat.getWavTaggedUrl(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        newWavTaggedUrl,
+                        beat.getWavTaggedUrl()));
     }
 
     @Test
     public void testGetWavUntaggedUrl() {
-        Assert.assertEquals(wavUntaggedUrl, beat.getWavUntaggedUrl(),
-                String.format("Should be '%s', but is '%s'", wavUntaggedUrl, beat.getWavUntaggedUrl()));
+        Assert.assertEquals(
+                wavUntaggedUrl,
+                beat.getWavUntaggedUrl(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        wavUntaggedUrl,
+                        beat.getWavUntaggedUrl()));
     }
 
     @Test
@@ -245,12 +359,18 @@ public class BeatTest {
         //Act
         beat.setWavUntaggedUrl(newWavUntaggedUrl);
         //Assert
-        Assert.assertEquals(newWavUntaggedUrl, beat.getWavUntaggedUrl(),
-                String.format("Should be '%s', but is '%s'", newWavUntaggedUrl, beat.getWavUntaggedUrl()));
+        Assert.assertEquals(
+                newWavUntaggedUrl,
+                beat.getWavUntaggedUrl(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        newWavUntaggedUrl,
+                        beat.getWavUntaggedUrl()));
     }
 
     @Test
     public void testGetId() {
+        Long id = 1L;
         Beat beat = new Beat();
 
         try {
@@ -261,7 +381,12 @@ public class BeatTest {
             e.printStackTrace();
         }
 
-        Assert.assertEquals(id, beat.getId(),
-                String.format("Should be '%s', but is '%s'", id, beat.getId()));
+        Assert.assertEquals(
+                id,
+                beat.getId(),
+                String.format(
+                        "Should be '%s', but is '%s'",
+                        id,
+                        beat.getId()));
     }
 }

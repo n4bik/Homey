@@ -11,5 +11,4 @@ public class HomeyBeatManagementApplication {
     public static void main(String[] args) {
         SpringApplication.run(HomeyBeatManagementApplication.class, args);
     }
-
 }

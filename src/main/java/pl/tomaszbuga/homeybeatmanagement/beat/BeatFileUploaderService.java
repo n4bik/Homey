@@ -21,10 +21,10 @@ import java.util.stream.Stream;
 public class BeatFileUploaderService implements FileUploaderService {
 
     private final Path root = Paths.get("storage");
-    private BeatService beatService;
+    private BeatServiceImpl beatService;
 
     @Autowired
-    public BeatFileUploaderService(BeatService beatService){
+    public BeatFileUploaderService(BeatServiceImpl beatService){
         this.beatService = beatService;
     }
 

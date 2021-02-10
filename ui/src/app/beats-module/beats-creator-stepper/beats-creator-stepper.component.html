@@ -12,6 +12,7 @@
           <input matInput
                  placeholder="First name"
                  formControlName="creatorFirstName"
+                 id="creatorFirstName"
                  required>
         </mat-form-field>
         &nbsp;
@@ -20,10 +21,16 @@
           <input matInput
                  placeholder="Last name"
                  formControlName="creatorLastName"
+                 id="creatorLastName"
                  required>
         </mat-form-field>
         <div>
-          <button mat-button matStepperNext>Next</button>
+          <button
+            mat-button
+            matStepperNext
+            id="1stNextButton">
+            Next
+          </button>
         </div>
       </form>
     </mat-step>
@@ -35,6 +42,7 @@
           <input matInput
                  placeholder="final_mixdown_master..."
                  formControlName="beatName"
+                 id="beatName"
                  required>
         </mat-form-field>
         <br>
@@ -42,11 +50,12 @@
           <mat-label>Description</mat-label>
           <textarea matInput
                     placeholder="Something nice about your music."
-                    formControlName="description"></textarea>
+                    formControlName="description"
+                    id="description"></textarea>
         </mat-form-field>
         <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperPrevious id="backButton">Back</button>
+          <button mat-button matStepperNext id="2ndNextButton">Next</button>
         </div>
       </form>
     </mat-step>
@@ -56,7 +65,10 @@
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">I want to start from scratch</button>
-        <button mat-button (click)="submitBeatForm()">Save</button>
+        <button
+          mat-button
+          id="saveBeatButton"
+          (click)="submitBeatForm()">Save</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>

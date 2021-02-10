@@ -2,6 +2,8 @@ package pl.tomaszbuga.homeybeatmanagement.beat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -135,4 +137,13 @@ public class Beat {
         return id;
     }
 
+    @Override
+    public String toString() {
+        try {
+            return new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(this);
+        } catch (com.fasterxml.jackson.core.JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

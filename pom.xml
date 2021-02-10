@@ -17,6 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <io.springfox.version>3.0.0-SNAPSHOT</io.springfox.version>
+        <selenide.version>5.16.2</selenide.version>
     </properties>
 
     <dependencies>
@@ -112,6 +113,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
         </dependency>
     </dependencies>
 
